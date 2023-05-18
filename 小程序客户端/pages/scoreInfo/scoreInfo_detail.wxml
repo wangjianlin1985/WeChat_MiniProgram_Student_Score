@@ -1,0 +1,48 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+
+  <view class="title">成绩信息详情</view>
+  <view class="scoreInfo_detail_view"> 
+      <view class="viewItem">
+        <view class="label">成绩编号：</view>
+        <view class="content">
+          <view>{{scoreId}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">考察学生：</view>
+        <view class="content"> 
+          <view>{{studentNumber}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">考察课程：</view>
+        <view class="content"> 
+          <view>{{courseNo}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">成绩得分：</view>
+        <view class="content"> 
+          <view>{{score}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">学生评价：</view>
+        <view class="content"> 
+          <view>{{evaluate}}</view>
+        </view>
+      </view>
+
+      <view>
+        <navigator class="btnReturn" open-type="navigateBack" hover-class="navigator-hover">返回</navigator>
+      </view>
+
+  </view>
+</view>

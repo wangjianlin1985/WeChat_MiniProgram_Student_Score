@@ -1,0 +1,41 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+
+  <view class="title">班级信息详情</view>
+  <view class="classInfo_detail_view"> 
+      <view class="viewItem">
+        <view class="label">班级编号：</view>
+        <view class="content">
+          <view>{{classNo}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">班级名称：</view>
+        <view class="content"> 
+          <view>{{className}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">班主任姓名：</view>
+        <view class="content"> 
+          <view>{{banzhuren}}</view>
+        </view>
+      </view>
+
+       <view class="viewItem">
+        <view class="label">成立日期：</view>
+        <view class="content"> 
+          <view>{{beginDate}}</view>
+        </view>
+      </view>
+
+      <view>
+        <navigator class="btnReturn" open-type="navigateBack" hover-class="navigator-hover">返回</navigator>
+      </view>
+
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">编辑班级信息</view>
+
+  <view class="classInfo_modify_view">
+    <form bindsubmit="formSubmit">
+       <view class="formItem">
+        <view class="label">班级编号：</view>
+        <view class="formControl">
+          <input type="text" name="classInfo.classNo" disabled="true" value="{{classNo}}" />
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="label">班级名称：</view>
+        <view class="formControl">
+          <input type="text" name="classInfo.className" placeholder="请输入班级名称" value="{{className}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">班主任姓名：</view>
+        <view class="formControl">
+          <input type="text" name="classInfo.banzhuren" placeholder="请输入班主任姓名" value="{{banzhuren}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">成立日期：</view>
+        <view class="formControl">
+          <picker mode="date"  start="1970-01-01" end="2030-01-01" value="{{beginDate}}" bindchange="bind_beginDate_change" >
+            <view style="display:flex;border:1px solid green;">
+              <input style="width:90%;border:0px;" name="classInfo.beginDate" placeholder="选择成立日期"  value="{{beginDate}}"></input>
+              <text class="clearButton" catchtap="clear_beginDate">x</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交修改</button>
+      </view>
+    </form>
+  </view>
+</view>

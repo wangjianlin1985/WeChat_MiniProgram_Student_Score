@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="toggleQview" bindtap="toggleQueryViewHide" style="padding:5px;">显示或隐藏查询视图</view>
+  <view class="queryView" hidden="{{queryViewHidden}}">
+    <view class="queryParams">
+      <view class="queryItem">
+        <view class="label">课程编号：</view>
+        <view class="searchControl"><input data-id="courseNo" placeholder="请输入课程编号关键字" value="{{courseNo}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">课程名称：</view>
+        <view class="searchControl"><input data-id="courseName" placeholder="请输入课程名称关键字" value="{{courseName}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">任课教师：</view>
+        <view class="searchControl"><input data-id="teacherName" placeholder="请输入任课教师关键字" value="{{teacherName}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">上课教室：</view>
+        <view class="searchControl"><input data-id="coursePlace" placeholder="请输入上课教室关键字" value="{{coursePlace}}" bindinput="searchValueInput" /></view>
+      </view>
+
+    </view>
+
+    <view class="queryButton">
+       <button class="font_12 fl_r op-btn mr_10" bindtap="queryCourse">查询</button>
+    </view>
+  </view>
+
+  <view class="courseList">
+  <block wx:for-items="{{courses}}" wx:key="{{index}}">
+    <view class="courseItem">
+        <view class="courseImg">
+          <image src="{{item.coursePhotoUrl}}"></image>
+        </view>
+        <navigator url="course_detail?courseNo={{item.courseNo}}" hover-class="navigator-hover">
+        <view class="courseText">
+          <view>总课时：{{item.courseCount}}</view>
+          <view>课程编号：{{item.courseNo}}</view>
+          <view>课程名称：{{item.courseName}}</view>
+          <view>任课教师：{{item.teacherName}}</view>
+          <view>课程学分：{{item.courseScore}}</view>
+        </view>
+        </navigator>
+    </view>
+    <view class="opt_view" style="display:none;">
+      <button class="font_12 fl_r del-btn mr_10" bindtap="removeCourse" data-courseno="{{item.courseNo}}">删除</button> 
+      <navigator url="course_modify?courseNo={{item.courseNo}}" hover-class="navigator-hover">
+        <button class="font_12 fl_r op-btn mr_10">编辑</button>
+      </navigator>
+    </view>
+  </block>
+  </view>
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  <view class="nodata_view" hidden="{{nodata_hide}}">
+    <image src="/images/Noline.png" mode="widthFix"></image>
+  </view>
+</view>
+

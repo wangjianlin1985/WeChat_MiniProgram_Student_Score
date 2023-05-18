@@ -1,0 +1,72 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">编辑课程信息</view>
+
+  <view class="course_modify_view">
+    <form bindsubmit="formSubmit">
+       <view class="formItem">
+        <view class="label">课程编号：</view>
+        <view class="formControl">
+          <input type="text" name="course.courseNo" disabled="true" value="{{courseNo}}" />
+        </view>
+      </view>
+      <view class="formItem">
+        <view class="label">课程名称：</view>
+        <view class="formControl">
+          <input type="text" name="course.courseName" placeholder="请输入课程名称" value="{{courseName}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">课程照片：</view>
+        <view class="formControl" bindtap="select_coursePhoto">
+          <input type="text" hidden="true" name="course.coursePhoto" value="{{coursePhoto}}" />
+          <image class="uploadPic" mode="aspectFill" src="{{coursePhotoUrl}}"></image>
+          <image wx:for="{{coursePhotoList}}" class="uploadPic" mode="aspectFill" src="{{item}}" wx:key=""></image>
+          <image src="../../images/upic.png" class="uploadPic" mode="widthFix"></image>
+        </view>
+      </view>
+
+      <view class="formItem" style="align-items:flex-start;">
+        <view class="label">课程简介：</view>
+        <view class="formControl">
+           <textarea placeholder="请输入课程简介" maxlength="800" name="course.courseMemo" value="{{courseMemo}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">任课教师：</view>
+        <view class="formControl">
+          <input type="text" name="course.teacherName" placeholder="请输入任课教师" value="{{teacherName}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">总课时：</view>
+        <view class="formControl">
+          <input type="text" name="course.courseCount" placeholder="请输入总课时" value="{{courseCount}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">课程学分：</view>
+        <view class="formControl">
+          <input type="text" name="course.courseScore" placeholder="请输入课程学分" value="{{courseScore}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">上课教室：</view>
+        <view class="formControl">
+          <input type="text" name="course.coursePlace" placeholder="请输入上课教室" value="{{coursePlace}}" />
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交修改</button>
+      </view>
+    </form>
+  </view>
+</view>
